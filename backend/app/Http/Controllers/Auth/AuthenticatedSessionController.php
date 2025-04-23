@@ -32,9 +32,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return response()->json(['user'=>$user,
+        return response()->json([
+        'user'=>$user,
         'token'=>$user->createToken('api',[$user->getRoleAttribute()])->plainTextToken
-    ]);
+        ]);
     }
 
     /**
